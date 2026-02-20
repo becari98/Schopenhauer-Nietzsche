@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Núcleo de Pesquisa Schopenhauer-Nietzsche</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style> 
+  :root {
+    --parchment: #f2e8d5;
+    --parchment-dark: #e8d9bb;
+    --parchment-deep: #d4c49a;
+    --ink: #1a1208;
+    --ink-mid: #2e1f0a;
+    --sepia: #6b4c2a;
+    --gold: #b8922a;
+    --gold-light: #d4a93c;
+    --gold-pale: #e8d48a;
+    --crimson: #7a1c1c;
+    --border-dark: #3a2a12;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #2a1e0e;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(107,76,42,0.08) 39px, rgba(107,76,42,0.08) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(107,76,42,0.05) 39px, rgba(107,76,42,0.05) 40px);
+    font-family: 'IM Fell English', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── OUTER FRAME ── */
+  .page-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .outer-border {
+    border: 6px double var(--gold);
+    box-shadow: 0 0 0 2px var(--border-dark), 0 0 0 4px var(--gold-pale), inset 0 0 0 2px var(--border-dark);
+    background: var(--parchment);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    position: relative;
+  }
+
+  /* Corner ornaments */
+  .outer-border::before,
+  .outer-border::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 18px;
+    line-height: 1;
+  }
+  .outer-border::before { top: -2px; left: 6px; }
+  .outer-border::after  { top: -2px; right: 6px; }
+
+  .corner-bl, .corner-br {
+    position: absolute;
+    color: var(--gold);
+    font-size: 18px;
+    line-height: 1;
+  }
+  .corner-bl { bottom: -2px; left: 6px; }
+  .corner-br { bottom: -2px; right: 6px; }
+
+  /* ── HEADER ── */
+  .site-header {
+    text-align: center;
+    padding: 36px 28px 0;
+    border-bottom: 3px solid var(--gold);
+    position: relative;
+  }
+
+  .header-ornament-top {
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 12px;
+    margin-bottom: 14px;
+    opacity: 0.75;
+    animation: fadeIn 1.2s ease both;
+  }
+
+  .fraktur-title {
+    font-family: 'UnifrakturMaguntia', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 rgba(177, 140, 41, 0.3);
+    animation: fadeIn 1s ease 0.2s both;
+  }
+
+  .subtitle-divider {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    animation: fadeIn 1s ease 0.4s both;
+  }
+
+  .subtitle-divider::before,
+  .subtitle-divider::after {
+    content: '';
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .subtitle-divider::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+  }
+
+  .subtitle-divider span {
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  .header-sub {
+    font-family: 'IM Fell English SC', serif;
+    font-size: clamp(10px, 2vw, 13px);
+    color: var(--sepia);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    animation: fadeIn 1s ease 0.5s both;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    background: var(--ink-mid);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 0;
+    position: relative;
+    animation: fadeIn 1s ease 0.6s both;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  nav a {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-pale);
+    text-decoration: none;
+    padding: 13px 18px;
+    display: block;
+    position: relative;
+    transition: color 0.25s, background 0.25s;
+  }
+
+  nav a::after {
+    content: '·';
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(184,146,42,0.4);
+  }
+  nav li:last-child a::after { display: none; }
+
+  nav a:hover, nav a.active {
+    color: var(--gold-light);
+    background: rgba(184,146,42,0.08);
+  }
+
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
+  nav li { position: relative; }
+
+  /* Dropdown */
+  .has-dropdown > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--ink-mid);
+    border: 1px solid var(--gold);
+    min-width: 260px;
+    z-index: 100;
+    flex-direction: column;
+  }
+
+  .has-dropdown:hover > ul { display: flex; }
+  .has-dropdown > ul a { font-size: 11px; border-bottom: 1px solid rgba(184,146,42,0.15); }
+  .has-dropdown > ul a::after { display: none; }
+
+  /* ── HERO PANEL ── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease 0.7s both;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+  }
+
+  .hero-img-wrap img {
+    display: block;
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center top;
+    filter: sepia(70%) contrast(0.9) brightness(0.85);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(26,18,8,0.1) 0%,
+      rgba(26,18,8,0.0) 40%,
+      rgba(26,18,8,0.65) 100%
+    );
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    text-align: center;
+    color: var(--gold-pale);
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ── HORIZONTAL RULE ORNAMENT ── */
+  .ornamental-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 28px;
+    color: var(--gold);
+  }
+
+  .ornamental-rule::before,
+  .ornamental-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-pale), var(--gold));
+  }
+  .ornamental-rule::after {
+    background: linear-gradient(to left, transparent, var(--gold-pale), var(--gold));
+  }
+
+  .ornamental-rule span { font-size: 18px; opacity: 0.7; }
+
+  /* ── MAIN CONTENT ── */
+  .content-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0;
+    border-top: 1px solid var(--parchment-deep);
+    animation: fadeIn 1s ease 0.8s both;
+  }
+
+  @media (max-width: 700px) {
+    .content-body { grid-template-columns: 1fr; }
+  }
+
+  /* MAIN */
+  .main-content {
+    padding: 32px 28px 32px 36px;
+    border-right: 2px solid var(--parchment-deep);
+  }
+
+  .section-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sepia);
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--parchment-deep);
+  }
+
+  .dropcap-paragraph {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink-mid);
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 20px;
+  }
+
+  .dropcap-paragraph:first-of-type::first-letter {
+    float: left;
+    font-family: 'UnifrakturMaguntia', serif;
+    font-size: 68px;
+    line-height: 0.78;
+    margin-right: 6px;
+    margin-top: 4px;
+    color: var(--gold);
+    text-shadow: 1px 1px 0 var(--sepia);
+  }
+
+  .research-orientations {
+    margin-top: 28px;
+  }
+
+  .orientation-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding: 16px 18px;
+    background: rgba(107,76,42,0.06);
+    border-left: 3px solid var(--gold);
+    position: relative;
+  }
+
+  .orientation-numeral {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 26px;
+    color: var(--gold);
+    min-width: 32px;
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  .orientation-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    font-style: normal;
+  }
+
+  .orientation-text strong {
+    font-style: normal;
+    color: var(--sepia);
+    font-family: 'Cinzel', serif;
+    font-size: 14.5px;
+    letter-spacing: 1px;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    padding: 28px 22px;
+    background: rgba(107,76,42,0.04);
+  }
+
+  .sidebar-widget {
+    margin-bottom: 32px;
+  }
+
+  .widget-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sepia);
+    border-bottom: 1px solid var(--parchment-deep);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
+  .sidebar-links { list-style: none; }
+  .sidebar-links li {
+    border-bottom: 1px dashed rgba(107,76,42,0.25);
+    padding: 6px 0;
+  }
+  .sidebar-links li a {
+    font-size: 13px;
+    color: var(--sepia);
+    text-decoration: none;
+    transition: color 0.2s;
+    line-height: 1.5;
+    display: block;
+  }
+  .sidebar-links li a:hover { color: var(--crimson); }
+
+  .sidebar-quote {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    border-left: 2px solid var(--gold);
+    padding-left: 12px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-attribution {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--sepia);
+    text-align: right;
+  }
+
+  .philosophers-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .philosopher-card {
+    border: 1px solid var(--parchment-deep);
+    padding: 10px 8px;
+    text-align: center;
+    background: var(--parchment);
+    transition: border-color 0.25s;
+  }
+  .philosopher-card:hover { border-color: var(--gold); }
+
+  .philosopher-card .ph-name {
+    font-family: 'Cinzel', serif;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    font-weight: 900;
+    color: var(--sepia);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .philosopher-card .ph-dates {
+    font-size: 10px;
+    color: rgba(107,76,42,0.6);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .ph-monogram {
+    font-family: 'UnifrakturMaguntia', serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink-mid);
+    border-top: 3px solid var(--gold);
+    text-align: center;
+    padding: 22px 28px;
+  }
+
+  .footer-ornament {
+    font-family: 'UnifrakturMaguntia', serif;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 8px;
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .footer-text {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 11px;
+    color: var(--parchment-deep);
+    letter-spacing: 2px;
+  }
+
+  .footer-text a { color: var(--gold-pale); text-decoration: none; }
+  .footer-text a:hover { color: var(--gold-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Hover effects */
+  .orientation-item {
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .orientation-item:hover {
+    background: rgba(107,76,42,0.11);
+    border-color: var(--gold-light);
+  }
+
+  /* Mobile nav toggle */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--gold-pale);
+    font-family: 'IM Fell English SC', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 8px auto;
+  }
+
+  @media (max-width: 600px) {
+    .menu-toggle { display: block; }
+    nav ul { display: none; flex-direction: column; }
+    nav ul.open { display: flex; }
+    nav a { font-size: 11px; padding: 11px 16px; text-align: center; }
+    nav a::after { display: none; }
+    .main-content { padding: 22px 16px; }
+    .sidebar { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+<div class="outer-border">
+  <span class="corner-bl">✦</span>
+  <span class="corner-br">✦</span>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-ornament-top">— ✦ ✦ ✦ —</div>
+    <h1 class="fraktur-title">Núcleo de Pesquisa<br>Schopenhauer-Nietzsche</h1>
+    <div class="subtitle-divider"><span>✦</span></div>
+    <p class="header-sub">Programa de Pós-Graduação em Filosofia · Universidade Estadual de Londrina</p>
+    <p class="header-sub">Universidade Estadual de Londrina</p>
+    <div style="height:18px;"></div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Navegação principal">
+    <button class="menu-toggle" onclick="this.nextElementSibling.querySelector('ul').classList.toggle('open')">☰ Menu</button>
+    <div class="nav-inner">
+      <ul>
+        <li><a href="#" class="active">Início</a></li>
+          <a href="#">Eventos</a>
+        </li>
+          <a href="#">Bibliografia</a></li>
+        <li><a href="integrantes.html">Integrantes</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <div class="hero" style="position: relative; z-index: 1;">
+    <div class="hero-img-wrap">
+      <img
+        src="capa.png"
+        alt="capa"
+        onerror="this.style.display='none'"
+      >
+      <div class="hero-overlay"></div>
+      <div class="hero-caption">
+        <em>„Die Welt ist meine Vorstellung."</em> — Arthur Schopenhauer, 1818
+       <p style="margin: 6px 0;"></p>
+        <em>„Die Welt ist das Spiel des Zeus."</em> — Friedrich Nietzsche, 1873
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-body">
+
+    <!-- MAIN -->
+    <main class="main-content">
+      <p class="section-heading">Apresentação do Núcleo</p>
+
+      <p class="dropcap-paragraph">
+        O <em>Núcleo de Pesquisa Schopenhauer-Nietzsche</em> constitui um espaço de estudo do pensamento de Schopenhauer e de Nietzsche vinculado ao Programa de Pós-Graduação em Filosofia da Universidade de Londrina (UEL). As orientações que caracterizam as pesquisas são delineadas segundo os seguintes eixos fundamentais:
+      </p>
+
+      <div class="research-orientations">
+        <div class="orientation-item">
+          <div class="orientation-numeral">I</div>
+          <div class="orientation-text">
+            <strong>Reconstrução Argumentativa</strong><br>
+            Com o propósito de apreender a lógica interna dos escritos de Schopenhauer e Nietzsche, dando destaque aos seus elementos constitutivos, contudo, sem deixar de considerar os pontos críticos em que os argumentos chegam aos seus próprios limites explicativos.
+          </div>
+        </div>
+
+        <div class="orientation-item">
+          <div class="orientation-numeral">II</div>
+          <div class="orientation-text">
+            <strong>Influências e Tradição</strong><br>
+            Destaque às influências sofridas por Schopenhauer e Nietzsche, expressas no diálogo, na apropriação, na recusa e crítica da tradição — não apenas da filosofia, mas também das artes, da ciência e da religião.
+          </div>
+        </div>
+
+        <div class="orientation-item">
+          <div class="orientation-numeral">III</div>
+          <div class="orientation-text">
+            <strong>Posteridade Filosófica</strong><br>
+            Atenção à posteridade do pensamento schopenhaueriano e nietzscheano, identificável não apenas na influência exercida por estes filósofos no pensamento dos séculos XIX e XX, mas também na atualidade crítica das suas posições filosóficas.
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-widget">
+        <p class="widget-title">Os Filósofos</p>
+        <div class="philosophers-mini">
+          <div class="philosopher-card" onclick="window.location.href='https://plato.stanford.edu/entries/schopenhauer/'" style="cursor: pointer;">
+            <div class="ph-monogram">A</div>
+            <div class="ph-name">Schopenhauer</div>
+            <div class="ph-dates">1788 – 1860</div>
+          </div>
+          <div class="philosopher-card" onclick="window.location.href='https://plato.stanford.edu/entries/nietzsche/'" style="cursor: pointer;">
+            <div class="ph-monogram">F</div>
+            <div class="ph-name">Nietzsche</div>
+            <div class="ph-dates">1844 – 1900</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-widget">
+        <p class="widget-title">Pensamento do Dia</p>
+        <blockquote class="sidebar-quote">
+          „Das Leben schwankt, wie ein Pendel, hin und her zwischen Schmerz und Langeweile."
+        </blockquote>
+        <p class="sidebar-attribution">— A. Schopenhauer</p>
+      </div>
+
+      <div class="sidebar-widget">
+        <p class="widget-title">Eventos Recentes</p>
+        <ul class="sidebar-links">
+          <li><a href="#">I Congresso do Núcleo de Pesquisa — 200 anos de <em>O Mundo</em></a></li>
+          <li><a href="#">II Seminário Nietzschiano Paranaense</a></li>
+          <li><a href="#">Lançamento: <em>Nietzsche e o Eruditismo</em></a></li>
+          <li><a href="#">Encontros de Estudo 2020</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <p class="widget-title">Links Bibliográficos</p>
+        <ul class="sidebar-links">
+          <li><a href="#">Obras de Schopenhauer</a></li>
+          <li><a href="#">Obras de Nietzsche</a></li>
+          <li><a href="#">Schopenhauer-Gesellschaft</a></li>
+          <li><a href="#">Nietzsche-Gesellschaft</a></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER RULE -->
+  <div class="ornamental-rule"><span>❧</span></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-ornament">✦ ✦ ✦</span>
+    <p class="footer-text">
+      Núcleo de Pesquisa Schopenhauer-Nietzsche &nbsp;·&nbsp;
+      <a href="https://nucleoschopenhauernietzsche.wordpress.com/">nucleoschopenhauernietzsche.wordpress.com</a>
+      &nbsp;·&nbsp; UEL · Londrina, Paraná
+    </p>
+  </footer>
+
+</div>
+</div>
+
+<script>
+// Subtle ink bleed animation on headings
+document.querySelectorAll('.fraktur-title').forEach(el => {
+  el.addEventListener('mouseover', () => {
+    el.style.textShadow = '2px 2px 4px rgba(184,146,42,0.5), -1px -1px 2px rgba(26,18,8,0.3)';
+  });
+  el.addEventListener('mouseout', () => {
+    el.style.textShadow = '1px 1px 0 rgba(184,146,42,0.3)';
+  });
+});
+
+// Smooth active nav link
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
