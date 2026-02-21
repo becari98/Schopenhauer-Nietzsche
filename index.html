@@ -90,6 +90,30 @@
     animation: fadeIn 1.2s ease both;
   }
 
+   /* ── LOGO ── */
+  .header-logo {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    transform: translateY(-50%);
+    height: clamp(50px, 10vw, 150px);
+    width: auto;
+    opacity: 0.75;
+    animation: fadeIn 1s ease 0.2s both;
+    z-index: 10;
+  }
+  .header-logo2 {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    transform: translateY(-50%);
+    height: clamp(50px, 10vw, 150px);
+    width: auto;
+    opacity: 0.75;
+    animation: fadeIn 1s ease 0.2s both;
+    z-index: 10;
+  }
+  
   .fraktur-title {
     font-family: 'UnifrakturMaguntia', serif;
     font-size: clamp(28px, 5vw, 52px);
@@ -98,6 +122,8 @@
     letter-spacing: 1px;
     text-shadow: 1px 1px 0 rgba(177, 140, 41, 0.3);
     animation: fadeIn 1s ease 0.2s both;
+    position: relative;
+    z-index: 1;
   }
 
   .subtitle-divider {
@@ -135,28 +161,6 @@
     animation: fadeIn 1s ease 0.5s both;
   }
 
-   /* ── LOGO ── */
-  .header-logo {
-    position: absolute;
-    top: 60px;
-    left: 60px;
-    transform: translateY(-50%);
-    height: clamp(50px, 10vw, 150px);
-    width: auto;
-    opacity: 0.75;
-    animation: fadeIn 1s ease 0.2s both;
-  }
-  .header-logo2 {
-    position: absolute;
-    top: 60px;
-    right: 60px;
-    transform: translateY(-50%);
-    height: clamp(50px, 10vw, 150px);
-    width: auto;
-    opacity: 0.75;
-    animation: fadeIn 1s ease 0.2s both;
-  }
-  
 
   /* ── NAVIGATION ── */
   nav {
@@ -553,8 +557,8 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <img src="uel logo.png" alt="Logo Pós-Graduação" class="header-logo">
-    <img src="pos logo.png" alt="Logo Pós-Graduação" class="header-logo2">
+    <img src="uel logo.png" onclick="window.open('https://portal.uel.br/')" alt="Logo Pós-Graduação" class="header-logo" style="cursor: pointer;">
+    <img src="pos logo.png" onclick="window.open('https://pos.uel.br/filosofia/')" alt="Logo Pós-Graduação" class="header-logo2" style="cursor: pointer;">
     <div class="header-ornament-top">— ✦ ✦ ✦ —</div>
     <h1 class="fraktur-title">Núcleo de Pesquisa<br>Schopenhauer-Nietzsche</h1>
     <div class="subtitle-divider"><span>✦</span></div>
