@@ -28,8 +28,8 @@
   body {
     background-color: #2a1e0e;
     background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 310px, rgba(107,76,42,0.08) 310px, rgba(107,76,42,0.08) 40px),
-      repeating-linear-gradient(90deg, transparent, transparent 310px, rgba(107,76,42,0.05) 310px, rgba(107,76,42,0.05) 40px);
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(107,76,42,0.08) 39px, rgba(107,76,42,0.08) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(107,76,42,0.05) 39px, rgba(107,76,42,0.05) 40px);
     font-family: 'IM Fell English', Georgia, serif;
     color: var(--ink);
     min-height: 100vh;
@@ -72,7 +72,7 @@
     font-size: 22px;
     color: var(--gold);
     letter-spacing: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     opacity: 0.75;
     animation: fadeIn 1.2s ease both;
   }
@@ -92,7 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 18px;
     animation: fadeIn 1s ease 0.4s both;
   }
   .subtitle-divider::before, .subtitle-divider::after {
@@ -102,7 +102,7 @@
   }
   .subtitle-divider::before { background: linear-gradient(to right, transparent, var(--gold)); }
   .subtitle-divider::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
-  .subtitle-divider span { color: var(--gold); font-size: 14px; }
+  .subtitle-divider span { color: var(--gold); font-size: 18px; }
 
   .header-sub {
     font-family: 'IM Fell English SC', serif;
@@ -117,7 +117,7 @@
     /* ── LOGO ── */
   .header-logo {
     position: absolute;
-    top: 60px;
+   top: 60px;
     left: 60px;
     transform: translateY(-50%);
     height: clamp(50px, 10vw, 150px);
@@ -184,14 +184,14 @@
     flex-direction: column;
   }
   .has-dropdown:hover > ul { display: flex; }
-  .has-dropdown > ul a { font-size: 14px; border-bottom: 1px solid rgba(184,146,42,0.15); }
+  .has-dropdown > ul a { font-size: 11px; border-bottom: 1px solid rgba(184,146,42,0.15); }
   .has-dropdown > ul a::after { display: none; }
 
   /* ── PAGE TITLE BAND ── */
   .page-title-band {
     background: var(--ink-mid);
     border-bottom: 2px solid var(--gold);
-    padding: 60px 36px;
+    padding: 20px 36px;
     display: flex;
     align-items: center;
     gap: 18px;
@@ -226,7 +226,7 @@
 
   /* ── MAIN LAYOUT ── */
   .content-body {
-    padding: clamp(60px, 4vw, 40px);
+    padding: clamp(20px, 4vw, 40px);
     animation: fadeIn 0.9s ease 0.8s both;
   }
 
@@ -272,13 +272,13 @@
   .members-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 60px;
+    gap: 20px;
   }
 
   .member-card {
     border: 1px solid var(--parchment-deep);
     background: var(--parchment);
-    padding: 18px 60px;
+    padding: 18px 20px;
     position: relative;
     transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
     overflow: hidden;
@@ -315,7 +315,7 @@
 
   .member-name {
     font-family: 'IM Fell English', serif;
-    font-size: 18px;
+    font-size: 17px;
     color: var(--ink);
     line-height: 1.3;
     font-weight: bold;
@@ -323,7 +323,7 @@
 
   .member-affiliation {
     font-family: 'Cinzel', serif;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--sepia);
     letter-spacing: 1.5px;
     margin-top: 5px;
@@ -333,7 +333,7 @@
   .member-role {
     display: inline-block;
     font-family: 'IM Fell English SC', serif;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
     color: var(--gold);
     background: rgba(184,146,42,0.08);
@@ -379,7 +379,7 @@
   }
   .footer-text {
     font-family: 'IM Fell English SC', serif;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--parchment-deep);
     letter-spacing: 2px;
   }
@@ -428,7 +428,7 @@
     border: 1px solid var(--gold);
     color: var(--gold-pale);
     font-family: 'IM Fell English SC', serif;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     padding: 8px 16px;
     cursor: pointer;
@@ -488,83 +488,116 @@
 <!-- PAGE TITLE BAND -->
 <div class="page-title-band">
   <div>
-    <h1>Integrantes</h1>
-    <p style="font-size: 16px;">Corpo docente, pesquisadores e discentes vinculados ao Núcleo</p>
+    <h1>Encontros</h1>
+    <p style="font-size: 16px;">Locais, datas e horários dos encontros do núcleo</p>
   </div>
 </div>
 
    <!-- CONTENT -->
   <div class="content-body">
 
-    <!-- DOCENTES -->
+    <!-- ENCONTROS -->
     <section class="category-section">
       <div class="category-header">
-        <div class="category-numeral" style="margin-right:-12px; line-height:0.8; transform:translateY(6px);">D</div>
+        <div class="category-numeral" style="margin-right:-12px; line-height:0.8; transform:translateY(6px);">S</div>
         <div class="category-title-wrap" style="display:flex; flex-direction:column; justify-content:flex-start;">
-          <p class="category-title" style="margin-top:6px;">ocentes</p>
+          <p class="category-title" style="margin-top:6px;">obre os encontros</p>
           <div class="category-rule"></div>
         </div>
       </div>
-      <div class="members-grid">
-
-        <div class="member-card" onclick="window.location.href='http://lattes.cnpq.br/4855691401899555';" style="cursor: pointer;">
-          <div class="member-name">Dr. Aguinaldo Pavão</div>
-          <div class="member-affiliation">Filosofia · UEL</div>
-          <span class="member-role">Professor</span>
-        </div>
-       
-        <div class="member-card" onclick="window.location.href='http://lattes.cnpq.br/3431433828575936';" style="cursor: pointer;">
-          <div class="member-name">Dr. José Fernandes Weber</div>
-          <div class="member-affiliation">Filosofia · UEL</div>
-          <span class="member-role">Professor</span>
-        </div>
-
+      <div
+        style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); max-width:700px; line-height:1.5; text-align: center; margin: 0 auto;">
+        Os Encontros de Estudo do Núcleo de Pesquisa Schopenhauer-Nietzsche reúnem uma diversidade considerável de leitores
+        de Schopenhauer e Nietzsche, vinculados, tanto à graduação quanto ao Programa de Pós-Graduação em Filosofia da
+        Universidade Estadual de Londrina (UEL). Tendo em vista que em geral cada um privilegia em seus estudos um ponto
+        distinto dos demais, a apresentação individual das pesquisas, ou de um aspecto delas, resulta em dois benefícios
+        básicos: 1. O grupo ganha em ouvir alguém falar sobre algo que, em tese, conhece mais que os outros; Com isso, a
+        compreensão sobre os dois autores é altamente enriquecida; 2. O expositor ganha com a discussão, pois ela, franca e
+        cordial como deve ser, certamente servirá para ele melhor pensar no que está pesquisando ao receber críticas e
+        comentários.
       </div>
     </section>
 
-    <!-- ORNAMENT -->
-    <div class="ornamental-rule"><span>❧</span></div>
-
-    <!-- PÓS-GRADUAÇÃO -->
+    <!-- Local e Data -->
     <section class="category-section">
       <div class="category-header">
-         <div class="category-numeral" style="margin-right:-12px; line-height:0.8; transform:translateY(6px);">P</div>
+        <div class="category-numeral" style="margin-right:-12px; line-height:0.8; transform:translateY(6px);">L</div>
         <div class="category-title-wrap" style="display:flex; flex-direction:column; justify-content:flex-start;">
-          <p class="category-title" style="margin-top:6px;">ós-Graduação</p>
+          <p class="category-title" style="margin-top:6px;">ocal e data dos encontros</p>
           <div class="category-rule"></div>
         </div>
       </div>
-      <div class="members-grid">
-     
-        <div class="member-card" onclick="window.location.href='http://lattes.cnpq.br/3224680672639273';" style="cursor: pointer;">
-          <div class="member-name">M.e Matheus Becari Dias</div>
-          <div class="member-affiliation">Filosofia · UEL</div>
-          <span class="member-role">Doutorando</span>
-        </div>
-        
-        <div class="member-card" onclick="window.location.href='http://lattes.cnpq.br/4166146183911009';" style="cursor: pointer;">
-          <div class="member-name">M.e Marcelo Martins Kretsch</div>
-          <div class="member-affiliation">Filosofia · UEL</div>
-          <span class="member-role">Doutorando</span>
-        </div>
-
+      <div
+        style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); max-width:700px; line-height:1.5; text-align: center; margin: 0 auto;">
+        Quanto à dinâmica, trata-se de encontros mensais, que ocorrem aos sábados, das 09:30 às 12:00h, na Sala de Eventos
+        do CCH. Com a antecedência de quinze dias à data do encontro, o responsável pela apresentação disponibilizará aos
+        participantes um roteiro, com indicação dos temas/problemas a serem abordados, bem como de uma referência
+        bibliográfica, ou mesmo, um artigo de própria autoria. Os textos serão enviados aos participantes por e-mail tão
+        logo sejam disponibilizados pelos palestrantes.
       </div>
     </section>
-
-    <!-- ORNAMENT -->
-    <div class="ornamental-rule"><span>❧</span></div>
-
-    <!-- GRADUAÇÃO -->
+    
+    <!-- CRONOGRAMA -->
     <section class="category-section">
       <div class="category-header">
-          <div class="category-numeral" style="margin-right:-12px; line-height:0.8; transform:translateY(6px);">G</div>
-        <div class="category-title-wrap" style="display:flex; flex-direction:column; justify-content:flex-start;">
-          <p class="category-title" style="margin-top:6px;">raduação</p>
-          <div class="category-rule"></div>
-        </div>
+      <div class="category-numeral" style="margin-right:-12px; line-height:0.8; transform:translateY(6px);">C</div>
+      
+      <div class="category-title-wrap" style="display:flex; flex-direction:column; justify-content:flex-start;">
+        <p class="category-title" style="margin-top:6px;">ronograma</p>
+        <div class="category-rule"></div>
       </div>
-      <div class="members-grid">
-       
+      </div>
+      
+      <div style="max-width:720px; margin: 20px;">
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">25/04/2020</p>
+        <p style="margin:0;">"Uma proposta de leitura do filme 'Dançando no escuro' de Lars Von Trier a partir da concepção schopenhaueriana da tragédia" – Marcelo Ribeiro Rosa</p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">30/05/2020</p>
+        <p style="margin:0;">"Os velhos enfermos de Uganda e Schopenhauer: notas a favor da utilidade e correção do suicídio" – Aguinaldo Pavão. <span style="display:block; margin-top:8px; color:var(--gold);">Debatedor: Marcelo Ribeiro Rosa</span></p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">27/06/2020</p>
+        <p style="margin:0;">"Algumas considerações acerca da liberdade transcendental em Schopenhauer" – Ednilson Bernardo Antoniassi. <span style="display:block; margin-top:8px; color:var(--gold);">Debatedor: Aguinaldo Pavão</span></p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">25/07/2020</p>
+        <p style="margin:0;">Luan Corrêa (UFPR)</p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">29/08/2020</p>
+        <p style="margin:0;">"Considerações sobre a teoria schopenhaueriana da liberdade moral" – Rogério Moreira Orrutea Filho. <span style="display:block; margin-top:8px; color:var(--gold);">Debatedor: Ednilson Bernardo Antoniassi</span></p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">26/09/2020</p>
+        <p style="margin:0;">Lucas Lazarini Valente (UNICAMP)</p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">16/10/2020</p>
+        <p style="margin:0;">Bruno Martins Machado (UFS)</p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">31/10/2020</p>
+        <p style="margin:0;">Fabio Ciraci (Lecce/It)</p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; margin-bottom:20px; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">28/11/2020</p>
+        <p style="margin:0;">Eli Vagner (UNESP)</p>
+      </div>
+
+      <div style="font-family:'IM Fell English', serif; font-size:18px; color:var(--sepia); line-height:1.8; padding:16px; border-left:3px solid var(--gold); background:rgba(184,146,42,0.04);">
+        <p style="font-weight:bold; color:var(--ink); margin-bottom:6px;">11/12/2020</p>
+        <p style="margin:0;">Vilmar Debona (UFSM)</p>
+      </div>
       </div>
     </section>
 

@@ -38,7 +38,7 @@
 
   /* ── OUTER FRAME ── */
   .page-wrap {
-    max-width: 1080px;
+    max-width: 1336px;
     margin: 0 auto;
     padding: 16px;
   }
@@ -73,7 +73,7 @@
   .corner-bl { bottom: -2px; left: 6px; }
   .corner-br { bottom: -2px; right: 6px; }
 
-  /* ── HEADER ── */
+   /* ── HEADER ── */
   .site-header {
     text-align: center;
     padding: 36px 28px 0;
@@ -135,6 +135,29 @@
     animation: fadeIn 1s ease 0.5s both;
   }
 
+   /* ── LOGO ── */
+  .header-logo {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    transform: translateY(-50%);
+    height: clamp(50px, 10vw, 150px);
+    width: auto;
+    opacity: 0.75;
+    animation: fadeIn 1s ease 0.2s both;
+  }
+  .header-logo2 {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    transform: translateY(-50%);
+    height: clamp(50px, 10vw, 150px);
+    width: auto;
+    opacity: 0.75;
+    animation: fadeIn 1s ease 0.2s both;
+  }
+  
+
   /* ── NAVIGATION ── */
   nav {
     background: var(--ink-mid);
@@ -154,7 +177,7 @@
 
   nav a {
     font-family: 'IM Fell English SC', serif;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--gold-pale);
@@ -239,8 +262,8 @@
     left: 0; right: 0;
     text-align: center;
     color: var(--gold-pale);
-    font-style: italic;
-    font-size: 12px;
+    font-style: normal;
+    font-size: 14px;
     letter-spacing: 1px;
   }
 
@@ -288,7 +311,7 @@
 
   .section-heading {
     font-family: 'Cinzel', serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 900;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -299,12 +322,12 @@
   }
 
   .dropcap-paragraph {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.85;
     color: var(--ink-mid);
     text-align: justify;
     hyphens: auto;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
   }
 
   .dropcap-paragraph:first-of-type::first-letter {
@@ -342,7 +365,7 @@
   }
 
   .orientation-text {
-    font-size: 14.5px;
+    font-size: 16px;
     line-height: 1.75;
     color: var(--ink-mid);
     font-style: normal;
@@ -352,7 +375,7 @@
     font-style: normal;
     color: var(--sepia);
     font-family: 'Cinzel', serif;
-    font-size: 14.5px;
+    font-size: 16px;
     letter-spacing: 1px;
   }
 
@@ -368,7 +391,7 @@
 
   .widget-title {
     font-family: 'Cinzel', serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 900;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -384,7 +407,7 @@
     padding: 6px 0;
   }
   .sidebar-links li a {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--sepia);
     text-decoration: none;
     transition: color 0.2s;
@@ -394,8 +417,8 @@
   .sidebar-links li a:hover { color: var(--crimson); }
 
   .sidebar-quote {
-    font-size: 13px;
-    font-style: italic;
+    font-size: 16px;
+    font-style: normal;
     color: var(--ink-mid);
     line-height: 1.7;
     border-left: 2px solid var(--gold);
@@ -405,7 +428,8 @@
 
   .sidebar-attribution {
     font-family: 'Cinzel', serif;
-    font-size: 10px;
+    font-size: 14px;
+    font-style: italic;
     letter-spacing: 1px;
     color: var(--sepia);
     text-align: right;
@@ -428,7 +452,7 @@
 
   .philosopher-card .ph-name {
     font-family: 'Cinzel', serif;
-    font-size: 9.5px;
+    font-size: 11px;
     letter-spacing: 1.5px;
     font-weight: 900;
     color: var(--sepia);
@@ -437,7 +461,7 @@
   }
 
   .philosopher-card .ph-dates {
-    font-size: 10px;
+    font-size: 16px;
     color: rgba(107,76,42,0.6);
     margin-top: 2px;
     font-style: italic;
@@ -470,7 +494,7 @@
 
   .footer-text {
     font-family: 'IM Fell English SC', serif;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--parchment-deep);
     letter-spacing: 2px;
   }
@@ -511,10 +535,12 @@
     .menu-toggle { display: block; }
     nav ul { display: none; flex-direction: column; }
     nav ul.open { display: flex; }
-    nav a { font-size: 11px; padding: 11px 16px; text-align: center; }
+    nav a { font-size: 13px; padding: 11px 16px; text-align: center; }
     nav a::after { display: none; }
     .main-content { padding: 22px 16px; }
     .sidebar { padding: 16px; }
+    .header-logo {left: 16px; height: 50px; top: auto; }
+    .header-logo2 { right: 16px; height: 50px; top: auto; }
   }
 </style>
 </head>
@@ -527,11 +553,12 @@
 
   <!-- HEADER -->
   <header class="site-header">
+    <img src="uel logo.png" alt="Logo Pós-Graduação" class="header-logo">
+    <img src="pos logo.png" alt="Logo Pós-Graduação" class="header-logo2">
     <div class="header-ornament-top">— ✦ ✦ ✦ —</div>
     <h1 class="fraktur-title">Núcleo de Pesquisa<br>Schopenhauer-Nietzsche</h1>
     <div class="subtitle-divider"><span>✦</span></div>
-    <p class="header-sub">Programa de Pós-Graduação em Filosofia · Universidade Estadual de Londrina</p>
-    <p class="header-sub">Universidade Estadual de Londrina</p>
+    <p class="header-sub">Programa de Pós-Graduação em Filosofia <br> Universidade Estadual de Londrina</p>
     <div style="height:18px;"></div>
   </header>
 
@@ -543,7 +570,7 @@
         <li><a href="#" class="active">Início</a></li>
           <a href="#">Eventos</a>
         </li>
-          <a href="#">Bibliografia</a></li>
+          <a href="encontros.html">Encontros</a></li>
         <li><a href="integrantes.html">Integrantes</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
@@ -610,15 +637,15 @@
     <aside class="sidebar">
 
       <div class="sidebar-widget">
-        <p class="widget-title">Os Filósofos</p>
+        <p class="widget-title">Sobre os Filósofos</p>
         <div class="philosophers-mini">
           <div class="philosopher-card" onclick="window.location.href='https://plato.stanford.edu/entries/schopenhauer/'" style="cursor: pointer;">
-            <div class="ph-monogram">A</div>
+            <div class="ph-monogram">A.</div>
             <div class="ph-name">Schopenhauer</div>
-            <div class="ph-dates">1788 – 1860</div>
+            <div class="ph-dates">1788 – 1860 </div>
           </div>
           <div class="philosopher-card" onclick="window.location.href='https://plato.stanford.edu/entries/nietzsche/'" style="cursor: pointer;">
-            <div class="ph-monogram">F</div>
+            <div class="ph-monogram">F.</div>
             <div class="ph-name">Nietzsche</div>
             <div class="ph-dates">1844 – 1900</div>
           </div>
@@ -627,19 +654,17 @@
 
       <div class="sidebar-widget">
         <p class="widget-title">Pensamento do Dia</p>
-        <blockquote class="sidebar-quote">
-          „Das Leben schwankt, wie ein Pendel, hin und her zwischen Schmerz und Langeweile."
-        </blockquote>
-        <p class="sidebar-attribution">— A. Schopenhauer</p>
+        <blockquote id="daily-quote" class="sidebar-quote">Carregando...</blockquote>
+        <p id="daily-author" class="sidebar-attribution"></p>
       </div>
 
       <div class="sidebar-widget">
         <p class="widget-title">Eventos Recentes</p>
         <ul class="sidebar-links">
-          <li><a href="#">I Congresso do Núcleo de Pesquisa — 200 anos de <em>O Mundo</em></a></li>
-          <li><a href="#">II Seminário Nietzschiano Paranaense</a></li>
-          <li><a href="#">Lançamento: <em>Nietzsche e o Eruditismo</em></a></li>
-          <li><a href="#">Encontros de Estudo 2020</a></li>
+          <li><a href="https://nucleoschopenhauernietzsche.wordpress.com/2018/04/01/congresso-schopenhauer-2018/">I Congresso do Núcleo de Pesquisa — 200 anos de <em>O Mundo</em></a></li>
+          <li><a href="https://nucleoschopenhauernietzsche.wordpress.com/2019/03/14/ii-seminario-nietzschiano-paranaense-nietzsche-contra-wagner/">II Seminário Nietzschiano Paranaense</a></li>
+          <li><a href="https://nucleoschopenhauernietzsche.wordpress.com/2018/08/19/palestra-de-lancamento-do-livro-nietzsche-e-o-eruditismo/">Lançamento: <em>Nietzsche e o Eruditismo</em></a></li>
+          <li><a href="https://nucleoschopenhauernietzsche.wordpress.com/2020/06/02/encontros-de-estudo-do-nucleo-de-pesquisa-schopenhauer-nietzsche-2020/">Encontros de Estudo 2020</a></li>
         </ul>
       </div>
 
@@ -690,6 +715,38 @@ document.querySelectorAll('nav a').forEach(a => {
     this.classList.add('active');
   });
 });
+
+// Frases do dia: carrega `quotes.json` e seleciona uma frase com base no dia do ano
+(function() {
+  function getDayOfYear(d) {
+    const start = Date.UTC(d.getFullYear(), 0, 1);
+    const today = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+    return Math.floor((today - start) / 86400000); // 0-based
+  }
+
+  const quoteEl = document.getElementById('daily-quote');
+  const authorEl = document.getElementById('daily-author');
+  if (quoteEl) quoteEl.textContent = 'Carregando...';
+
+  fetch('quotes.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(quotes => {
+      if (!Array.isArray(quotes) || quotes.length === 0) throw new Error('No quotes found');
+      const today = new Date();
+      const idx = getDayOfYear(today) % quotes.length;
+      const q = quotes[idx];
+      if (quoteEl) quoteEl.textContent = q.text;
+      if (authorEl) authorEl.textContent = '— ' + q.author;
+    })
+    .catch(err => {
+      console.error('Erro carregando quotes.json:', err);
+      if (quoteEl) quoteEl.textContent = '„Das Leben schwankt, wie ein Pendel, hin und her zwischen Schmerz und Langeweile."';
+      if (authorEl) authorEl.textContent = '— A. Schopenhauer';
+    });
+})();
 </script>
 </body>
 </html>
